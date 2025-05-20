@@ -267,7 +267,7 @@ if uploaded_file is not None:
 
                 with open(temp_image_path, "rb") as f:
                     files = {"file": (os.path.basename(temp_image_path), f, "image/png")}
-                    response = requests.post("http://127.0.0.1:5000/generate-3d", files=files, timeout=180)
+                    response = requests.post(f"{BACKEND_URL}/generate-3d", files=files, timeout=180)
 
                 if response.status_code == 200:
                     data = response.json()
@@ -307,7 +307,7 @@ if uploaded_file is not None:
 
                             try:
                                 cost_response = requests.post(
-                                    "http://127.0.0.1:5000/estimate-construction-cost",
+                                    f"{BACKEND_URL}/estimate-construction-cost",
                                     json={
                                         "area": area,
                                         "bedrooms": bedrooms,
@@ -337,9 +337,9 @@ if uploaded_file is not None:
 
                         # GLB file viewer and download
                         if glb_path.startswith("/static/"):
-                            glb_url = f"http://127.0.0.1:5000{glb_path}"
+                            glb_url = f"{BACKEND_URL}{glb_path}"
                         else:
-                            glb_url = f"http://127.0.0.1:5000/static/{os.path.basename(glb_path)}"
+                            glb_url = f"{BACKEND_URL}/static/{os.path.basename(glb_path)}"
 
                         glb_content = requests.get(glb_url).content
                         try:
