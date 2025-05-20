@@ -238,8 +238,8 @@ if uploaded_file is not None:
                     st.error(f"❌ Wall detection error: {e}")
                     with st.expander("Error Details", expanded=False):
                         st.code(traceback.format_exc(), language='python')
-with col2:
-    if st.button("2️⃣ Generate 3D Model"):
+    with col2:
+     if st.button("2️⃣ Generate 3D Model"):
         st.write("---")
         
         with st.spinner("Generating 3D model, please wait..."):
