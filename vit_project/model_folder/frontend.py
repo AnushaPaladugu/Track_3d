@@ -2,7 +2,7 @@ import streamlit as st
 import requests
 import tempfile
 import os
-import opencv-python
+import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
